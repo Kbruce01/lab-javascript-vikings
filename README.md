@@ -290,6 +290,29 @@ Returns the current status of the `War` based on the size of the armies.
 - **if the `Viking` array is empty**, should return **_"Saxons have fought for their lives and survived another day..."_**
 - **if there are at least 1 `Viking` and 1 `Saxon`**, should return **_"Vikings and Saxons are still in the thick of battle."_**
 
+### BONUS - Iteration 6: Full Battle
+
+So far, you've been able to simulate a single attack at a time using `vikingAttack()` and `saxonAttack()`. But a real war doesn't stop after one hit — it keeps going until one side has no soldiers left standing.
+
+In this iteration, you'll add a `fullBattle()` method that automates the entire war: it repeatedly calls `vikingAttack()` and `saxonAttack()` back and forth until either the `vikingArmy` or the `saxonArmy` is completely wiped out, then reports the final result.
+
+#### `fullBattle()` method
+
+- should be a function
+- should receive **0 arguments**
+- should repeatedly call `vikingAttack()` and `saxonAttack()`, one after the other, in a loop
+- the loop should continue **only while both armies still have at least 1 soldier**
+- should **return the result of `showStatus()`** once the loop ends
+
+**Hints:**
+
+- Think about what kind of loop lets you repeat an action *while a condition is true* — you've used `if`/`else` for conditions before, but here the condition needs to be checked **before each round**, not just once.
+- After calling `vikingAttack()`, the `saxonArmy` might become empty. Make sure you don't call `saxonAttack()` on an empty army afterward — check the army's length before proceeding.
+- You already have all the methods you need (`vikingAttack()`, `saxonAttack()`, `showStatus()`) — this iteration is about **orchestrating** them, not writing new combat logic.
+- Test this with small armies first (e.g., 1 Viking vs 1 Saxon) so you can follow the logic step by step before trying larger armies.
+
+<br>
+
   
 
 **Happy Coding!** :heart:

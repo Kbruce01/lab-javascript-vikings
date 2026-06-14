@@ -379,5 +379,40 @@ describe('War', () => {
         );
       });
     });
+  
+    describe('fullBattle() method', () => {
+      it('should be a declared', () => {
+        expect(typeof war.fullBattle).toBe('function');
+      });
+
+      it('should receive 0 arguments', () => {
+        expect(war.fullBattle.length).toEqual(0);
+      });
+
+      it('should return a string', () => {
+        expect(typeof war.fullBattle()).toBe('string');
+      });
+
+      it('should return a valid war status message', () => {
+        const result = war.fullBattle();
+        const validMessages = [
+          'Vikings have won the war of the century!',
+          'Saxons have fought for their lives and survived another day...'
+        ];
+        expect(validMessages).toContain(result);
+      });
+
+      it('should leave at least one army empty after the battle', () => {
+        war.fullBattle();
+        const vikingsDead = war.vikingArmy.length === 0;
+        const saxonsDead = war.saxonArmy.length === 0;
+        expect(vikingsDead || saxonsDead).toBe(true);
+      });
+
+      it('should not return the mid-battle status message', () => {
+        const result = war.fullBattle();
+        expect(result).not.toBe('Vikings and Saxons are still in the thick of battle.');
+      });
+    });
   });
 });
